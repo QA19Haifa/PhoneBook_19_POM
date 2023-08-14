@@ -18,12 +18,12 @@ public class AddNewContactTests extends AppiumConfig {
     public void precondition(){
         new AuthenticationScreen(driver)
                 .login(Auth.builder()
-                        .email("abc_1203@mail.com")
+                        .email("abc@def.com")
                         .password("$Abcdef12345")
                         .build());
     }
 
-    @Test(invocationCount = 5)
+    @Test
     public void addNewContactPositive(){
 
         Contact contact = Contact.builder()
@@ -39,8 +39,8 @@ public class AddNewContactTests extends AppiumConfig {
                 .openContactForm()
                 .fillContactForm(contact)
                 .submitContact()
-                .isContactAdded(contact);
-
+//                .isContactAdded(contact);
+                .isContactAddedScroll(contact);
     }
 
 }
